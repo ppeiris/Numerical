@@ -1,67 +1,3 @@
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <math.h>
-// #include <time.h>
-
-// void merge(int *A, int min, int mid, int max) {
-
-//     printf("%d %d %d \n",min, mid, max );
-
-
-
-// }
-
-// void sort(int *A, int min, int max) {
-
-//     // for (int i = 0; i < 12; i++)
-//     // {
-//     //     printf("%d\n", A[i]);
-//     // }
-
-
-//     if (min < max) {
-
-//         int mid = (min + max) / 2;
-
-//         sort(A, min, mid);
-//         // sort(A, mid+1, max);
-
-//         merge(A,min,mid,max);
-//         // for(int i = min; i < max; i++) {
-//         //     printf("%d ", A[i]);
-//         // }
-
-//         // printf("\n");
-
-
-//     }
-
-
-
-// }
-
-// int main(int argc, const char *argv[])
-// {
-//     FILE *file;
-//     // file = fopen("IntegerArray.txt", "r");
-//     file = fopen("smallnumbers.txt", "r");
-
-//     // int count = 100000;
-//     int count = 12;
-//     int *N = (int *)malloc(sizeof(int) * count);
-
-//     for(int i = 0; i < count; i++) {
-//         fscanf(file, "%d", &N[i]);
-//     }
-
-//     sort(N, 0, count);
-
-
-//     return 0;
-// }
-
-
-
 /* C program for merge sort */
 #include<stdlib.h>
 #include<stdio.h>
@@ -148,7 +84,7 @@ void printArray(int A[], int size)
 /* Driver program to test above functions */
 int main()
 {
-    int count = 100000;
+    int count = 10;
     FILE *file;
     file = fopen("IntegerArray.txt", "r");
 
@@ -175,8 +111,5 @@ int main()
             printf("ERROR");
         }
     }
-
-
-
     return 0;
 }
