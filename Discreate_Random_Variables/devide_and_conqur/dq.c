@@ -148,7 +148,7 @@ void printArray(int A[], int size)
 /* Driver program to test above functions */
 int main()
 {
-    int count = 100000;
+    int count = 10;
     FILE *file;
     file = fopen("IntegerArray.txt", "r");
 

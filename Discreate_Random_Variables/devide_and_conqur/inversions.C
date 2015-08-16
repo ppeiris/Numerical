@@ -1,88 +1,108 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void printArray(int data[], int count) {
+void checkAccuracy(int *data, int count) {
 
-    printf("\n[ ");
+    int hold;
     for(int i = 0; i < count; i++) {
-        if (i == count - 1) {
-            printf("%d ", data[i]);
-        } else {
-            printf("%d, ", data[i]);
+
+        if (i > 1) {
+            if (hold > data[i]) {
+                printf("\nERROR\n");
+            }
         }
+        hold = data[i];
     }
-    printf("]\n");
 }
 
-void sort(int data[], int min, int mid, int max) {
+void printArray(int *data, int count) {
+    for(int i = 0; i < count; i++) {
+        printf("%d, ", data[i]);
+    }
+}
 
-    int i, j, k;
-    int n1 = mid - min + 1;
-    int n2 = max - mid;
+void sort(int *data, int start, int mid, int end) {
 
-    int L[n1], R[n2];
+    // [start...............mid.................end]
+    // [        leftArray    |    rightArray       ]
+    // [ <--(mid - start)--->| <---(end - mid)---->]
 
-    for(i = 0; i < n1; i++) {
-        L[i] = data[min + i];
+    int la = mid - start + 1;
+    int ra = end - mid;
+
+    int *leftArray  = (int *)malloc(sizeof(int) * la);
+    int *rightArray = (int *)malloc(sizeof(int) * ra);
+
+
+    for(int i = 0; i < la; i++) {
+        leftArray[i] = data[start + i];
     }
 
-    for (j = 0; j < n2; j++) {
-        R[j] = data[mid + 1 + j];
+    for(int j = 0; j < ra; j++) {
+        rightArray[j] = data[ra + j];
     }
 
-    i = 0;
-    j = 0;
-    k = min;
+    int i = 0;
+    int j = 0;
+    int k = start;
 
-    while (i < n1 && j < n2)
-    {
-        if (L[i] <= R[j]) {
-            data[k] = L[i];
+    while(i < la && j < ra) {
+
+        if (leftArray[i] <= rightArray[j]) {
+            data[k] = leftArray[i];
             i++;
-        }
-        else
-        {
-            data[k] = R[j];
+        } else {
+            data[k] = rightArray[j];
             j++;
         }
         k++;
     }
 
-    while (i < n1) {
-        data[k] = L[i];
+    while(i < la) {
+        data[k] = leftArray[i];
         i++;
         k++;
     }
 
-    while (j < n2) {
-        data[k] = R[j];
+    while(j < ra) {
+        data[k] = rightArray[j];
         j++;
         k++;
     }
 }
 
-void mergeSort(int data[], int min, int max) {
 
-    if (min < max) {
-        int mid = min + (max-min)/2;
-        mergeSort(data, min, mid);
-        mergeSort(data, (mid + 1), max);
-        sort(data, min, mid, max);
+void mergeSort(int *data, int start, int end) {
+    if (start < end) {
+        int mid = (end + start) / 2;
+        mergeSort(data, start, mid);
+        mergeSort(data, mid + 1, end);
+        sort(data, start, mid, end);
     }
-
 }
+
 
 int main() {
 
+    // read the data from the file
     FILE *file;
     file = fopen("IntegerArray.txt", "r");
-    int count = 100000;
-    int data[count];
+    int count = 10;
+    int *data = (int *)malloc(sizeof(int) * count);
     for(int i = 0; i < count; i++) {
         fscanf(file, "%d", &data[i]);
     }
-    printArray(data, count);
-    mergeSort(data, 0, count - 1);
+
+    // print array
     printArray(data, count);
 
+    // mergeSort
+    mergeSort(data, 0, count - 1);
+
+    printf("\n\n");
+    printArray(data, count);
+    // print array
+    checkAccuracy(data, count);
+
+    return 0;
 }
