@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void checkAccuracy(int *data, int count) {
+void checkaccuracy(int *data, int count) {
 
     int hold;
     for(int i = 0; i < count; i++) {
 
         if (i > 1) {
             if (hold > data[i]) {
-                printf("\nERROR\n");
+                printf("\nerror\n");
             }
         }
         hold = data[i];
     }
 }
 
-void printArray(int *data, int count) {
+void printarray(int *data, int count) {
     for(int i = 0; i < count; i++) {
         printf("%d, ", data[i]);
     }
@@ -24,22 +24,22 @@ void printArray(int *data, int count) {
 void sort(int *data, int start, int mid, int end) {
 
     // [start...............mid.................end]
-    // [        leftArray    |    rightArray       ]
+    // [        leftarray    |    rightarray       ]
     // [ <--(mid - start)--->| <---(end - mid)---->]
 
     int la = mid - start + 1;
     int ra = end - mid;
 
-    int *leftArray  = (int *)malloc(sizeof(int) * la);
-    int *rightArray = (int *)malloc(sizeof(int) * ra);
+    int *leftarray  = (int *)malloc(sizeof(int) * la);
+    int *rightarray = (int *)malloc(sizeof(int) * ra);
 
 
     for(int i = 0; i < la; i++) {
-        leftArray[i] = data[start + i];
+        leftarray[i] = data[start + i];
     }
 
     for(int j = 0; j < ra; j++) {
-        rightArray[j] = data[ra + j];
+        rightarray[j] = data[ra + j];
     }
 
     int i = 0;
@@ -48,35 +48,35 @@ void sort(int *data, int start, int mid, int end) {
 
     while(i < la && j < ra) {
 
-        if (leftArray[i] <= rightArray[j]) {
-            data[k] = leftArray[i];
+        if (leftarray[i] <= rightarray[j]) {
+            data[k] = leftarray[i];
             i++;
         } else {
-            data[k] = rightArray[j];
+            data[k] = rightarray[j];
             j++;
         }
         k++;
     }
 
     while(i < la) {
-        data[k] = leftArray[i];
+        data[k] = leftarray[i];
         i++;
         k++;
     }
 
     while(j < ra) {
-        data[k] = rightArray[j];
+        data[k] = rightarray[j];
         j++;
         k++;
     }
 }
 
 
-void mergeSort(int *data, int start, int end) {
+void mergesort(int *data, int start, int end) {
     if (start < end) {
         int mid = (end + start) / 2;
-        mergeSort(data, start, mid);
-        mergeSort(data, mid + 1, end);
+        mergesort(data, start, mid);
+        mergesort(data, mid + 1, end);
         sort(data, start, mid, end);
     }
 }
@@ -85,8 +85,8 @@ void mergeSort(int *data, int start, int end) {
 int main() {
 
     // read the data from the file
-    FILE *file;
-    file = fopen("IntegerArray.txt", "r");
+    file *file;
+    file = fopen("integerarray.txt", "r");
     int count = 10;
     int *data = (int *)malloc(sizeof(int) * count);
     for(int i = 0; i < count; i++) {
@@ -94,15 +94,15 @@ int main() {
     }
 
     // print array
-    printArray(data, count);
+    printarray(data, count);
 
-    // mergeSort
-    mergeSort(data, 0, count - 1);
+    // mergesort
+    mergesort(data, 0, count - 1);
 
     printf("\n\n");
-    printArray(data, count);
+    printarray(data, count);
     // print array
-    checkAccuracy(data, count);
+    checkaccuracy(data, count);
 
     return 0;
 }

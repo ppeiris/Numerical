@@ -8,18 +8,22 @@ $(shell mkdir -p $(BIN))
 
 DATA_FILE1 = IntegerArray.txt
 
-all: divideconquer
+all: divideconquer mergesort
 
 divideconquer: divideconquer.o
-	$(CC) divideconquer.o -o divideconquer
+	$(CC) divideconquer.o -o $(BIN)/divideconquer
 
 divideconquer.o: divideconquer.C
 	$(CC) $(CFLAGS) divideconquer.C
 
+mergesort: mergesort.o
+	$(CC) mergesort.o -o $(BIN)/mergesort
+
+mergesort.o: mergesort.C
+	$(CC) $(CFLAGS) mergesort.C
 
 $(shell cp $(DATA_FILE1) $(BIN))
 
-$(shell cp divideconquer $(BIN))
 
 clean:
 	\rm -rf bin *.o *~ divideconquer
