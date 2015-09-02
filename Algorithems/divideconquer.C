@@ -1,6 +1,7 @@
 /* C program for merge sort */
 #include<stdlib.h>
 #include<stdio.h>
+#include<string.h>
 
 int count = 0;
 
@@ -11,6 +12,7 @@ void merge(int arr[], int l, int m, int r)
     int n1 = m - l + 1;
     int n2 =  r - m;
 
+    printf("...........................Sorting --- [%d] to [%d] \n", l, r);
     /* create temp arrays */
     int L[n1], R[n2];
 
@@ -56,6 +58,27 @@ void merge(int arr[], int l, int m, int r)
     }
 }
 
+void printMap(int big, int start, int end, int final, int b)
+{
+    printf("[");
+
+    for(int i = big; i < start; i++) {
+        printf(" . ");
+    }
+    for (int i = start; i < end; i++) {
+        if (b) {
+            printf(" 0 ");
+        } else {
+            printf(" 1 ");
+        }
+    }
+    for(int i = end; i < final; i++) {
+        printf(" . ");
+    }
+    printf("]\n");
+}
+
+
 /* l is for left index and r is right index of the sub-array
   of arr to be sorted */
 void mergeSort(int arr[], int l, int r)
@@ -63,10 +86,22 @@ void mergeSort(int arr[], int l, int r)
     if (l < r)
     {
         int m = l+(r-l)/2; //Same as (l+r)/2, but avoids overflow for large l and h
+
+        printf("> start [%d] end [%d]\n", l, r);
+        // printMap(0, l, r, 9, 0);
         mergeSort(arr, l, m);
+        printf(">> mid [%d] end [%d]\n", m + 1, r);
+        // printMap(0, m+1, r, 9, 1);
         mergeSort(arr, m+1, r);
+
+
+        // printf("Sorting\n");
+        // printMap(0, l, r, 9, 1);
         merge(arr, l, m, r);
 
+    } else {
+        // printf(">> start [%d] end [%d]\n", l, r);
+        // printMap(0, l, r, 9, 0);
     }
 }
 
@@ -100,6 +135,7 @@ int main()
     printf("Given array is \n");
     printArray(arr, arr_size);
 
+    // printf("%0*d\n", 20, 0);
     mergeSort(arr, 0, arr_size - 1);
 
     printf("\nSorted array is \n");
