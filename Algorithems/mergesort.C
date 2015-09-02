@@ -16,10 +16,10 @@ void mergeSort(int *data, int start, int mid, int end)
 
   printf("Sort start [%d] mid [%d] end [%d]\n", start, mid, end);
 
-  int i, j, k;
+  //int i, j, k;
 
-  int n1 = (mid - start);
-  int n2 = (end - mid);
+  //int n1 = (mid - start);
+  //int n2 = (end - mid);
 
 
 
