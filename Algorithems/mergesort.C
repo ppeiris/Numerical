@@ -9,21 +9,49 @@ void printData(int *read, int count)
   }
 }
 
-
-
 void mergeSort(int *data, int start, int mid, int end)
 {
 
-  printf("Sort start [%d] mid [%d] end [%d]\n", start, mid, end);
+  int n1 = (mid - start) + 1; // 4 - 0 + 1 = 5
+  int n2 = (end - mid); // 9 - 4 = 5
 
-  int i, j, k;
+  int leftArray[n1], rightArray[n2];
 
-  int n1 = (mid - start);
-  int n2 = (end - mid);
+  for(int i = 0; i < n1; i++) {
+    leftArray[i] = *(data + start + i);
+  }
 
+  for(int i = 0; i < n2; i++) {
+    rightArray[i] = *(data + mid + 1 + i);
+  }
 
+  int leftIndex = 0;
+  int rightIndex = 0;
+  int dataIndex = start;
+  while (leftIndex < n1 && rightIndex < n2) {
 
+    if (leftArray[leftIndex] <= rightArray[rightIndex]) {
+      *(data + dataIndex) = leftArray[leftIndex];
+      leftIndex++;
+    } else {
+      *(data + dataIndex) = rightArray[rightIndex];
+      rightIndex++;
+    }
 
+    dataIndex++;
+  }
+
+  while(leftIndex < n1) {
+    *(data + dataIndex) = leftArray[leftIndex];
+    dataIndex++;
+    leftIndex++;
+  }
+
+  while(rightIndex < n2) {
+    *(data + dataIndex) = rightArray[rightIndex];
+    dataIndex++;
+    rightIndex++;
+  }
 }
 
 void divide(int *data, int start, int end)
@@ -45,15 +73,13 @@ int main()
   int *data = (int *)malloc(sizeof(int) * readCount);
   file = fopen("smallNumbers.txt", "r");
 
-
   for(int i = 0; i < readCount; i++) {
     fscanf(file, "%d", (data + i));
   }
 
-  // printData(data, readCount);
+  printData(data, readCount);
+  printf("===============================\n");
   divide(data, 0, readCount - 1);
-
-
-
+  printData(data, readCount);
   return 0;
 }
