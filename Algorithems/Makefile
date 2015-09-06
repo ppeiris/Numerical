@@ -9,7 +9,7 @@ $(shell mkdir -p $(BIN))
 DATA_FILE1 = IntegerArray.txt
 DATA_FILE2 = smallNumbers.txt
 
-all: divideconquer mergesort
+all: divideconquer mergesort linklistmergesort
 
 divideconquer: divideconquer.o
 	$(CC) divideconquer.o -o $(BIN)/divideconquer
@@ -22,6 +22,12 @@ mergesort: mergesort.o
 
 mergesort.o: mergesort.C
 	$(CC) $(CFLAGS) mergesort.C
+
+linklistmergesort: linklistmergesort.o
+	$(CC) linklistmergesort.o -o $(BIN)/linklistmergesort
+
+linklistmergesort.o: linklistmergesort.C
+	$(CC) $(CFLAGS) linklistmergesort.C
 
 $(shell cp $(DATA_FILE1) $(BIN))
 $(shell cp $(DATA_FILE2) $(BIN))
