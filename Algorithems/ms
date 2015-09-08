@@ -1,0 +1,61 @@
+left >> 
+ Address [0x7fff534588f0] = 54
+right >> 
+ Address [0x7fff534588e0] = 14
+==============
+left >> 
+ Address [0x7fff53458920] = 54
+Address [0x7fff53458924] = 14
+right >> 
+ Address [0x7fff53458910] = 79
+==============
+left >> 
+ Address [0x7fff53458920] = 29
+right >> 
+ Address [0x7fff53458910] = 25
+==============
+left >> 
+ Address [0x7fff53458950] = 54
+Address [0x7fff53458954] = 14
+Address [0x7fff53458958] = 79
+right >> 
+ Address [0x7fff53458940] = 29
+Address [0x7fff53458944] = 25
+==============
+left >> 
+ Address [0x7fff534588f0] = 60
+right >> 
+ Address [0x7fff534588e0] = 28
+==============
+left >> 
+ Address [0x7fff53458920] = 60
+Address [0x7fff53458924] = 28
+right >> 
+ Address [0x7fff53458910] = 53
+==============
+left >> 
+ Address [0x7fff53458920] = 49
+right >> 
+ Address [0x7fff53458910] = 90
+==============
+left >> 
+ Address [0x7fff53458950] = 60
+Address [0x7fff53458954] = 28
+Address [0x7fff53458958] = 53
+right >> 
+ Address [0x7fff53458940] = 49
+Address [0x7fff53458944] = 90
+==============
+left >> 
+ Address [0x7fff53458970] = 54
+Address [0x7fff53458974] = 14
+Address [0x7fff53458978] = 79
+Address [0x7fff5345897c] = 29
+Address [0x7fff53458980] = 25
+right >> 
+ Address [0x7fff53458950] = 60
+Address [0x7fff53458954] = 28
+Address [0x7fff53458958] = 53
+Address [0x7fff5345895c] = 49
+Address [0x7fff53458960] = 90
+==============

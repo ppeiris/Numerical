@@ -5,6 +5,15 @@
 
 int count = 0;
 
+
+void printData(int *read, int count)
+{
+  for(int i = 0; i < count; i++) {
+    printf("Address [%p] = %d\n", (read + i),*(read + i));
+  }
+}
+
+
 /* Function to merge the two haves arr[l..m] and arr[m+1..r] of array arr[] */
 void merge(int arr[], int l, int m, int r)
 {
@@ -12,7 +21,7 @@ void merge(int arr[], int l, int m, int r)
     int n1 = m - l + 1;
     int n2 =  r - m;
 
-    printf("...........................Sorting --- [%d] to [%d] \n", l, r);
+    // printf("...........................Sorting --- [%d] to [%d] \n", l, r);
     /* create temp arrays */
     int L[n1], R[n2];
 
@@ -22,6 +31,11 @@ void merge(int arr[], int l, int m, int r)
     for(j = 0; j < n2; j++)
         R[j] = arr[m + 1+ j];
 
+    printf("left >> \n ");
+    printData(L, n1);
+    printf("right >> \n ");
+    printData(R, n2);
+    printf("==============\n");
     /* Merge the temp arrays back into arr[l..r]*/
     i = 0;
     j = 0;
@@ -41,7 +55,7 @@ void merge(int arr[], int l, int m, int r)
         k++;
     }
 
-    /* Copy the remaining elements of L[], if there are any */
+     // Copy the remaining elements of L[], if there are any
     while (i < n1)
     {
         arr[k] = L[i];
@@ -87,10 +101,10 @@ void mergeSort(int arr[], int l, int r)
     {
         int m = l+(r-l)/2; //Same as (l+r)/2, but avoids overflow for large l and h
 
-        printf("> start [%d] end [%d]\n", l, r);
+        // printf("> start [%d] end [%d]\n", l, r);
         // printMap(0, l, r, 9, 0);
         mergeSort(arr, l, m);
-        printf(">> mid [%d] end [%d]\n", m + 1, r);
+        // printf(">> mid [%d] end [%d]\n", m + 1, r);
         // printMap(0, m+1, r, 9, 1);
         mergeSort(arr, m+1, r);
 
@@ -121,7 +135,8 @@ int main()
 {
     int count = 10;
     FILE *file;
-    file = fopen("IntegerArray.txt", "r");
+    // file = fopen("IntegerArray.txt", "r");
+    file = fopen("smallNumbers.txt", "r");
 
     int arr[count];// = {4,8,1,20,13,2,11,7,19,15};
 
@@ -132,14 +147,14 @@ int main()
 
     int arr_size = sizeof(arr)/sizeof(arr[0]);
 
-    printf("Given array is \n");
-    printArray(arr, arr_size);
+    // printf("Given array is \n");
+    // printArray(arr, arr_size);
 
     // printf("%0*d\n", 20, 0);
     mergeSort(arr, 0, arr_size - 1);
 
-    printf("\nSorted array is \n");
-    printArray(arr, arr_size);
+    // printf("\nSorted array is \n");
+    // printArray(arr, arr_size);
 
 
     for (int i = 1; i < count; i++) {
