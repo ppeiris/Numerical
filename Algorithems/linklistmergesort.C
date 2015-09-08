@@ -41,7 +41,7 @@ void checkForErrors(NodeList *list)
 
 NodeList * initializeList()
 {
-  int readCount = 50000;
+  int readCount = 20000;
   NodeList *list = (NodeList *)malloc(sizeof(NodeList));
   list->head = NULL;
   list->tail = NULL;
@@ -202,12 +202,13 @@ int main()
 /* here, do your time-consuming job */
 
   divide(nodelist, nodelist->start, nodelist->end);
-  // printList(nodelist);
+  printList(nodelist);
   end = clock();
   time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 
   checkForErrors(nodelist);
 
+  printList(nodelist);
   printf("Time spend = %f\n", time_spent);
 
   return 0;

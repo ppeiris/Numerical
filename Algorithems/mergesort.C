@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <time.h>
 
 void printData(int *read, int count)
 {
@@ -68,18 +68,24 @@ void divide(int *data, int start, int end)
 int main()
 {
   // load the data from the file
-  int readCount = 10;
+  clock_t begin, end;
+  double time_spent;
+  int readCount = 100000;
   FILE *file;
   int *data = (int *)malloc(sizeof(int) * readCount);
-  file = fopen("smallNumbers.txt", "r");
+  file = fopen("IntegerArray.txt", "r");
 
   for(int i = 0; i < readCount; i++) {
     fscanf(file, "%d", (data + i));
   }
 
-  printData(data, readCount);
+  // printData(data, readCount);
   printf("===============================\n");
+  begin = clock();
   divide(data, 0, readCount - 1);
+  end = clock();
   printData(data, readCount);
+  time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+  printf("Time spend = %f\n", time_spent);
   return 0;
 }
