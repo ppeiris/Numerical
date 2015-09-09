@@ -4,14 +4,14 @@
 
 void printData(int *data, int count)
 {
+	printf("[");
 	for(int i = 0; i < count; i++) {
-		printf("data[%d] = %d \n", i, *(data + i));
+		printf("%d ", *(data + i));
 	}
+	printf("]\n");
 }
 
-
-
-void countSplit(int *data, int start, int mid, int end)
+int countSplit(int *data, int start, int mid, int end)
 {
 	int leftCount = mid - start + 1;
 	int rightCount = end - mid;
@@ -20,29 +20,57 @@ void countSplit(int *data, int start, int mid, int end)
 	int *right = (int *)malloc(sizeof(int) * rightCount);
 
 
+	for(int i = 0; i < leftCount; i++) {
+		*(left + i) = *(data + start + i);
+	}
 
 
+	for(int i = 0; i < rightCount; i++) {
+		*(right + i) = *(data + mid + 1 + i);
+	}
 
 
+	int i = 0;
+	int j = 0;
+	int k = start;
+	int inv = 0;
+	while(i < leftCount && j < rightCount) {
 
-	printf("[%d, %d, %d]\n", start, mid, end);
+		if (*(left +i) <= *(right + j)) {
+			*(data + k) = *(left + i);
+			i++;
+		} else {
+			*(data + k) = *(right + j);
+			j++;
+			inv += leftCount - i;
+			// printf("number of inversions = %d \n", inv);
+		}
+		k++;
+	}
 
+	while(i < leftCount) {
+		*(data + k) = *(left + i);
+		k++;
+		i++;
+	}
 
+	while(j < rightCount) {
+		*(data + k) = *(right + j);
+		k++;
+		j++;
+	}
 
+	return inv;
 }
 
-
-
-void divide(int *data, int start, int end)
+void divide(int *data, int start, int end, long int *invc)
 {
 	if (start < end) {
 		int mid = start + (end - start)/2;
-		// printf("[%d %d]\n", start, end);
-		divide(data, start, mid);
-		// printf("[%d %d]\n", mid + 1, end);
-		divide(data, mid + 1, end);
-
-		countSplit(data, start, mid, end);
+		divide(data, start, mid, invc);
+		divide(data, mid + 1, end, invc);
+		int inversionCount = countSplit(data, start, mid, end);
+		*invc +=inversionCount;
 	}
 }
 
@@ -51,14 +79,21 @@ int main()
 {
 	clock_t begin, end;
 	double time_spent;
-	int readCount = 10;
-	FILE *file = fopen("smallNumbers.txt", "r");
+	int readCount = 100000;
+	// FILE *file = fopen("smallInversions.txt", "r");
+	FILE *file = fopen("IntegerArray.txt", "r");
+	long int invc = 0;
 	int *data = (int *)malloc(sizeof(int) *readCount);
 	for (int i = 0; i < readCount; i++) {
 		fscanf(file, "%d", (data + i));
 	}
-	divide(data, 0, readCount - 1);
-	printData(data, readCount);
-
+	// printData(data, readCount);
+	begin = clock();
+	divide(data, 0, readCount - 1, &invc);
+	end = clock();
+	// printData(data, readCount);
+	printf("Total inversions = %ld\n", invc);
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+	printf("Time took = %f s\n", time_spent);
   	return 0;
 }

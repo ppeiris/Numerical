@@ -7,7 +7,7 @@ BIN = bin
 $(shell mkdir -p $(BIN))
 
 # DATA_FILE1 = IntegerArray.txt
-DATA_FILE1 = ../smallNumbers.txt
+DATA_FILE1 = smallInversions.txt
 
 
 all: inversion
