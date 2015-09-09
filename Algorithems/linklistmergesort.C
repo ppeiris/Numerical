@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "linklistmergesort.h"
 
-
-
 void printList(NodeList *list)
 {
   if (list->head != NULL) {
@@ -196,7 +194,6 @@ int main()
 {
   NodeList *nodelist = initializeList();
   // printList(nodelist);
-
 
   begin = clock();
 /* here, do your time-consuming job */
