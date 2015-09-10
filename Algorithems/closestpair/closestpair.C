@@ -2,54 +2,37 @@
 #include <stdlib.h>
 #include "closestpair.h"
 
-void sortXY(Point *data, int start, int mid, int end)
+void printPoints(DataList *data, int count)
 {
-
-		printf("[%d %d %d]\n", start, mid, end);
-
-		int *X = (int *)malloc(sizeof(int) * (end - start + 1)); // X values
-		int *Y = (int *)malloc(sizeof(int) * (end - start + 1)); // Y values
-
-
-		int leftCount = mid - start + 1;
-		int rightCount = end - mid;
-
-		for (int i = 0; i < leftCount; i++) {
-			*(X + i) =
-		}
-
-
-
-}
-
-
-void findClosestPair(Point *data, int start, int end)
-{
-	if (start < end) {
-		int mid = start + (end - start)/2;
-		findClosestPair(data, start, mid);
-		findClosestPair(data, (mid + 1), end);
-		sortXY(data, start, mid, end);
+	for (int i = 0; i < count; i++) {
+		printf("%d -> (%d %d)\n", (data + i)->datapoint->p, (data + i)->datapoint->x, (data + i)->datapoint->y);
 	}
+
 }
 
+void divide(DataList *data, int start, int end)
+{
+	// if(start < end) {
+	// 	int mid =
+	// }
+}
 
 int main()
 {
 	int readCount = 10;
-
 	FILE *file = fopen("points.txt", "r");
-	Point *pointsList = (Point *)malloc(sizeof(Point) * readCount);
-
+	DataList *datalist = (DataList *)malloc(sizeof(DataList) * readCount);
 	for(int i = 0; i < readCount; i++) {
-		fscanf(file, "%d %d",&((pointsList + i)->x), &((pointsList + i)->y));
-		// printf("[ %d, %d ]\n", (pointsList + i)->x, (pointsList + i)->y);
-
+		(datalist + i)->datapoint = (Point *)malloc(sizeof(Point));
+		fscanf(file, "%d %d", &(datalist + i)->datapoint->x, &(datalist + i)->datapoint->y);
+		(datalist + i)->datapoint->p = i;
 	}
 
 
-	findClosestPair(pointsList, 0, readCount - 1);
+	divide(datalist, 0, readCount - 1);
 
+
+	printPoints(datalist, 10);
 
 	return 0;
 }
