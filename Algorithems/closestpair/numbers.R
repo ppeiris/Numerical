@@ -13,3 +13,4 @@ abline(v = mid3)
 print(mid1)
 print(mid2)
 print(mid3)
+
