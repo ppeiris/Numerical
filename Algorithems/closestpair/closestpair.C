@@ -5,8 +5,8 @@
 #include <float.h>
 #include "closestpair.h"
 
-// #define DEBUG_PRINT
-// #define DEBUG_PRINT_PAIR
+ #define DEBUG_PRINT
+ #define DEBUG_PRINT_PAIR
 void printPoints(DataList *data, int count)
 {
 	for (int i = 0; i < count; i++) {
