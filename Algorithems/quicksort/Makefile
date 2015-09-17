@@ -6,8 +6,7 @@ BIN = bin
 
 $(shell mkdir -p $(BIN))
 
-DATA_FILE1 = IntegerArray.txt
-DATA_FILE2 = smallNumbers.txt
+DATA_FILE2 = IntegerArray.txt
 
 all: quicksort
 
@@ -17,8 +16,7 @@ quicksort: quicksort.o
 quicksort.o: quicksort.C
 	$(CC) $(CFLAGS) quicksort.C
 
-$(shell cp ../$(DATA_FILE1) $(BIN))
-$(shell cp ../$(DATA_FILE2) $(BIN))
+$(shell cp $(DATA_FILE2) $(BIN))
 
 clean:
 	\rm -rf bin *.o *~quicksort
