@@ -5,8 +5,9 @@
 #include <float.h>
 #include "closestpair.h"
 
- #define DEBUG_PRINT
- #define DEBUG_PRINT_PAIR
+// #define DEBUG_PRINT
+// #define DEBUG_PRINT_PAIR
+#define DEBUG_TMP
 void printPoints(DataList *data, int count)
 {
 	for (int i = 0; i < count; i++) {
@@ -274,6 +275,32 @@ double closestPoints(DataList *datalistX,
 		mid_distance = distance;
 	}
 
+
+	int delta = calcDistance(
+	            (pair + 0)->datapoint,
+	            (pair + 1)->datapoint
+	        );
+
+
+	int dleftIndex = 0;
+	int drightIndex = npy - 1;
+	for (int i = 0; i < npy; i++) {
+		double distanceofy = (datalistY + i)->datapoint->x - mid_x;
+		if (distanceofy <= (mid_x - delta)) { // the point is in the left side of mid_x
+			(datalistYY + dleftIndex)->datapoint = (datalistY + i)->datapoint;
+			dleftIndex++;
+		} else if (distanceofy <= (mid_x + delta)) {
+			(datalistYY + drightIndex)->datapoint = (datalistY + i)->datapoint;
+			drightIndex--;
+		}
+	}
+
+
+	// while(dleftIndex >= 0) {
+	// 	int x0 = (datalistYY + dleftIndex)->datapoint->y + delta;
+
+	// }
+
 	return sqrt(mid_distance);
 }
 
@@ -299,7 +326,7 @@ double bruteforceForAllData(DataList *x, int npx, DataList *pair)
 
 int main()
 {
-	int readCount = 10;
+	int readCount = 20;
 	DataList *datalistX = (DataList *)malloc(sizeof(DataList) * readCount);
 	DataList *datalistY = (DataList *)malloc(sizeof(DataList) * readCount);
 	DataList *pair = (DataList *)malloc(sizeof(DataList) * 2);
