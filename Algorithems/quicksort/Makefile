@@ -6,7 +6,7 @@ BIN = bin
 
 $(shell mkdir -p $(BIN))
 
-DATA_FILE2 = IntegerArray.txt
+DATA_FILE2 = points.txt
 
 all: quicksort
 
