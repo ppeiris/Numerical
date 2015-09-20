@@ -60,6 +60,9 @@ void swap(DataList *list, int i, int j)
 }
 
 
+/*************************************************************
+    quick sort with moving the pivot to the end of the array
+*************************************************************/
 void quicksort(DataList *list, int left, int right)
 {
     if (left < right) {
@@ -79,6 +82,9 @@ void quicksort(DataList *list, int left, int right)
         swap(list, j, right);
         quicksort(list, left, j - 1);
         quicksort(list, j + 1, right);
+
+        pivot = NULL;
+        free(pivot);
     }
 }
 
@@ -94,6 +100,28 @@ void errorCheck(DataList *list)
     }
 }
 
+/*****************************************************
+    Keep the pivot at the start of the array
+******************************************************/
+void sort(DataList *list, int start, int end)
+{
+   if (start < end) {
+    Point *pivot = (list + start)->datapoint;
+    int j = start + 1;
+    for(int i = start + 1; i < (end + 1); i++) {
+        if ((list + i)->datapoint->x < pivot->x) {
+            swap(list, i, j);
+            j++;
+        }
+    }
+    pivot = NULL;
+    free(pivot);
+    swap(list, j - 1, start);
+    sort(list, start, j - 2);
+    sort(list, j, end);
+   }
+}
+
 
 int main()
 {
@@ -105,8 +133,10 @@ int main()
     #endif
     begin = clock();
 
-    // Quick sort
+    // Quick sort (move the pivot to the end of the array)
     quicksort(list, 0, N - 1);
+    // Quick sort (leave the pivot at the beginning of the array)
+    // sort(list, 0, N - 1);
 
     end = clock();
     #ifdef DEBUG
