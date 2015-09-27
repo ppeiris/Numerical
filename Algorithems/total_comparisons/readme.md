@@ -1,7 +1,7 @@
 
 ## Question Part 1
 
-The data file contains all of the integers between 1 and 10,000 (inclusive, with no repeats) in unsorted order. The integer in the i<sup>th</sup> row of the file gives you the i^th entry of an input array.
+The data file contains all of the integers between 1 and 10,000 (inclusive, with no repeats) in unsorted order. The integer in the i<sup>th</sup> row of the file gives you the i<sup>th</sup> entry of an input array.
 
 Your task is to compute the total number of comparisons used to sort the given input file by QuickSort. As you know, the number of comparisons depends on which elements are chosen as pivots, so we'll ask you to explore three different pivoting rules.
 
