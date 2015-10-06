@@ -6,9 +6,11 @@
  */
 void printA(int *A, int length)
 {
+	printf("===== Array ======\n");
 	for (int i = 0; i < length; i++) {
 		printf("Data at %d = %d\n", i, A[i]);
 	}
+
 }
 
 /**
@@ -45,8 +47,9 @@ int left(int i)
  */
 void max_hepify(int *A, int i, int length)
 {
-	int l = left(i); // left child index
-	int r = right(i); // right child index
+
+	int l = left(i);
+	int r = right(i);
 	int largest;
 
 	if (l < length && A[l] > A[i]) {
@@ -60,9 +63,11 @@ void max_hepify(int *A, int i, int length)
 	}
 
 	if (largest != i) {
-		swap(A, largest, i);
+
+		swap(A, i, largest);
 		max_hepify(A, largest, length);
 	}
+
 }
 
 /**
@@ -76,11 +81,47 @@ void build_max_heap(int *A, int length)
 	}
 }
 
+
+void min_hepify(int *A, int i, int length)
+{
+
+	int l = left(i);
+	int r = right(i);
+
+	int s;
+
+	if (l < length && A[l] < A[i]) {
+		s = l;
+	} else {
+		s = i;
+	}
+
+
+	if (r < length && A[r] < A[s]) {
+		s = r;
+	}
+
+	if (s != i) {
+		swap(A, s, i);
+		min_hepify(A, s, length);
+	}
+
+}
+
+void build_min_heap(int *A, int length)
+{
+	for (int i = length/2; i > -1; i--) {
+		min_hepify(A, i, length);
+	}
+}
+
 int main()
 {
-	int A[] = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
+	int A[] = {8, 1, 3, 2, 16, 9, 10, 14, 4, 7};
 	int length = sizeof(A)/sizeof(int);
 	build_max_heap(A, length);
+	printA(A, length);
+	build_min_heap(A, length);
 	printA(A, length);
 	return 0;
 
