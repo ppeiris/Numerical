@@ -6,11 +6,11 @@ BIN = bin
 
 $(shell mkdir -p $(BIN))
 
-# DATA_FILE1 = IntegerArray.txt
+DATA_FILE1 = IntegerArray.txt
 # DATA_FILE1 = smallheaparrays.txt
 
 
-all:heaparray
+all: heaparray maxpriorityqueue
 
 heaparray: heaparray.o
 	$(CC) heaparray.o -o $(BIN)/heaparray
@@ -18,6 +18,11 @@ heaparray: heaparray.o
 heaparray.o: heaparray.C
 	$(CC) $(CFLAGS) heaparray.C
 
+maxpriorityqueue: maxpriorityqueue.o
+	$(CC) maxpriorityqueue.o -o $(BIN)/maxpriorityqueue
+
+maxpriorityqueue.o: maxpriorityqueue.C
+	$(CC) $(CFLAGS) maxpriorityqueue.C
 
 $(shell cp $(DATA_FILE1) $(BIN))
 

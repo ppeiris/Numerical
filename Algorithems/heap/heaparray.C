@@ -6,10 +6,25 @@
  */
 void printA(int *A, int length)
 {
-	printf("===== Array ======\n");
+
+	printf(" ");
 	for (int i = 0; i < length; i++) {
-		printf("Data at %d = %d\n", i, A[i]);
+		printf("----");
 	}
+	printf(" \n");
+
+
+	printf("|");
+	for (int i = 0; i < length; i++) {
+		printf(" %d |", A[i]);
+	}
+	printf(" \n");
+
+	printf(" ");
+	for (int i = 0; i < length; i++) {
+		printf("----");
+	}
+	printf(" \n");
 
 }
 
@@ -81,13 +96,15 @@ void build_max_heap(int *A, int length)
 	}
 }
 
-
+/**
+ * Build the heap with the minimum value at
+ * the root.
+ */
 void min_hepify(int *A, int i, int length)
 {
 
 	int l = left(i);
 	int r = right(i);
-
 	int s;
 
 	if (l < length && A[l] < A[i]) {
@@ -95,7 +112,6 @@ void min_hepify(int *A, int i, int length)
 	} else {
 		s = i;
 	}
-
 
 	if (r < length && A[r] < A[s]) {
 		s = r;
@@ -105,7 +121,6 @@ void min_hepify(int *A, int i, int length)
 		swap(A, s, i);
 		min_hepify(A, s, length);
 	}
-
 }
 
 void build_min_heap(int *A, int length)
@@ -115,14 +130,44 @@ void build_min_heap(int *A, int length)
 	}
 }
 
+
+void max_heapsort(int *A, int length)
+{
+	for(int i = length - 1; i > 0; i--) {
+		swap(A, 0, i);
+		length = length - 1;
+		build_max_heap(A, length);
+	}
+}
+
 int main()
 {
 	int A[] = {8, 1, 3, 2, 16, 9, 10, 14, 4, 7};
 	int length = sizeof(A)/sizeof(int);
-	build_max_heap(A, length);
-	printA(A, length);
-	build_min_heap(A, length);
-	printA(A, length);
-	return 0;
 
+	printf("1. build a max heap\n");
+	printf("2. build a max heap and sort (heap sort)\n");
+	printf("3. build a min heap\n");
+	int input = 0;
+	scanf("%d", &input);
+
+	printA(A, length);
+
+	switch(input) {
+		case 1:
+			build_max_heap(A, length);
+			printA(A, length);
+			break;
+		case 2:
+			build_max_heap(A, length);
+			max_heapsort(A, length);
+			printA(A, length);
+			break;
+		case 3:
+			build_min_heap(A, length);
+			printA(A, length);
+			break;
+	}
+
+	return 0;
 }
