@@ -1,0 +1,53 @@
+\section{Modeling of Photone Detectors}
+\subsection{Contrast}
+ Irradiance - power of electromagnetic radiation per unit area at a surface.
+
+ Brightness of a Object is
+
+ \begin{equation*}
+       C=\frac{|\bar q_{b} - \bar q_{o}|}{\bar q_{b}}
+ \end{equation*}
+ $\bar q_{o}$ - Irradiance of the object \\
+ $\bar q_{b}$ - Irradiance of the background
+
+\subsection{Rose Model}
+
+{\color{red} Signal } - ( $S_{Rose}$ ) =  $|\bar q_{b} - \bar q_{o}|A$ \\
+{\color{red} Noise } - $\sigma_{b}$ =  $\sqrt{A\bar q_{b}}$
+
+\subsubsection{Signal to Noice ratio}
+ \begin{equation*}
+       SNR_{Rose} = \frac{|\bar q_{b} - \bar q_{o}|A}{\sqrt{A\bar q_{b}}}=C\sqrt{A\bar q_{b}}
+ \end{equation*}
+\subsection{Detective Quantum Efficiency} 
+
+DQE -  Ability to detect a random signal against the background of random radiation.         
+
+ \begin{equation*}
+       DQE=\frac{SNR_{ouput}^{2}}{SNR_{input}^2}=\frac{(\Delta X)^{2}\sigma_{Y}^{2}}{(\Delta Y)^{2}\sigma_{X}^{2}}=\frac{G\sigma_{X}^{2}}{\sigma_{Y}^{2}}
+ \end{equation*}
+
+\subsection{Defining Detector Performance}
+\begin{itemize}
+     \item Statistical 
+     \item SNR
+     \item Minimum integration time
+\end{itemize}
+
+
+\subsubsection{Statistical}
+
+DEQ is define as the ratio of the variance of the tw estimates. \\
+ \begin{equation*}
+     DEQ=\frac{variance-of-the-ideal-estimator}{variance-of-actual-estimator}=\frac{\sigma_{q-ideal}^{2}}{\sigma_{q-actual}^{2}}
+ \end{equation*}
+
+ Maximum DQE = 1
+
+\subsubsection{SNR}
+
+
+ \begin{equation*}
+     SNR=\frac{\bar X}{\sigma_{X}}
+ \end{equation*}
+$\bar X = E[X]$

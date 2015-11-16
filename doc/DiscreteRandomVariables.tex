@@ -1,0 +1,64 @@
+\section{Lecture 3: (Chapter 5) Discrete Random Variable}
+\subsection{Discrete Random Variable}
+\emph{Random Variable} is a function that maps the sample space $\mathcal{S}$ into a subset of the real line.\\
+
+A \emph{discrete} random variable is an rv whose possible values either constitute a finite set or else be listed in an infinite sequence in which there is a first element, a second element, and so on. 
+
+\subsection{Probability Mass Function (pmf)}
+\emph{probability distribution} or \emph{probability mass function} of a discrete random variable is define for every number $x$ by $p(x)$
+\begin {equation*}
+	p(x)=P(X=x)=P(\forall \in \mathcal{S}: X(s)=x)
+\end{equation*}
+
+Conditions 
+\begin{itemize}
+	\item $0 \leq p(x) \leq 1$
+	\item $\sum^{\infty}_{i=1}p(x_{i})=1$
+\end{itemize}
+
+\subsection{Poisson Probability Distribution}
+\label{pois}
+A random variable $X$ is said to have a \emph{Poisson Distribution} with parameter $\lambda (\lambda \geq 0)$ if the pmf of $X$ is
+
+\begin{equation*}
+	p(x;\lambda)=\frac{e^{-\lambda} \lambda^{x}}{x!}
+\end{equation*}
+\emph{$\lambda$ is frequently a rate per unit time or per unit area}
+
+\subsection{Approximation of Binomial Probability Mass Function by Poisson pmf}
+
+When $M\rightarrow \infty$ and $p\rightarrow 0$, Binomial pmf become a Poisson pmf ($\lambda=Mp$)
+
+\subsection{Transformation of Discrete Random Variable}
+TODO
+
+\subsection{Cumulative Distribution Function (CDF) \\ (\emph{Distribution function})}
+\begin{equation*}
+	F_{X}(x)=P[X\leq x]
+\end{equation*}
+
+Note: \emph{$P[X\leq x] = P[x_{1}]+P[x_{2}]+P[x_{3}]\dots+P[x]$}
+
+\begin{equation*}
+	P[a < X < b]=F_{X}(b^{-})-F_{X}(a^{+})
+\end{equation*}
+
+\begin{equation*}
+	P[a \leq X < b]=F_{X}(b^{-})-F_{X}(a^{-})
+\end{equation*}
+
+\begin{equation*}
+	P[a < X \leq b]=F_{X}(b^{+})-F_{X}(a^{+})
+\end{equation*}
+
+Note: \emph{$a^{+}$- denotes value just slightly larger than $a$, and $a^{-}$ - denotes value just smaller than $b$}\\\\
+
+\textbf{Properties of CDF}
+\begin{itemize}
+	\item $0 \leq F_{X}(x) \leq 1$
+	\item $\displaystyle\lim_{x\to-\infty}F_{X}=0$ 
+	\item $\displaystyle\lim_{x\to\infty}F_{X}=1$
+	\item if ($x_{1}<x_{2}$) then $F_{X}(x_{1}) \leq F_{X}(x_{2})$ - \emph{CDF is monotonically increasing}
+	\item $P(x_{1} < X x_{2})=F_{X}(x_{2})-F_{X}(x_{1})$ - ($x_{1} < x_{2}$)
+	\item $F_{X}(x^{+})=F_{X}$ where $x_{+}=x+ \epsilon $ with $\epsilon\rightarrow 0, F_{X}(x) $ is continuous from the right.
+\end{itemize}

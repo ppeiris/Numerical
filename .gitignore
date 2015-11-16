@@ -3,3 +3,8 @@
 *.o
 bin/
 .enmd
+*.log
+*.toc
+*.aux
+*.out
+doc/*.pdf

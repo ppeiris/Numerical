@@ -1,0 +1,155 @@
+\section{Lecture 2: (Chapter 4) Conditional Probability }
+\subsection{Joint Events} 
+\begin{itemize}
+	\item Joint event - $A\cap B$ ($A\cap B \neq \emptyset$)
+	\item Joint probability - $P[A\cap B]$
+	\item Marginal probability - $P[B]$
+\end{itemize}
+\subsection{Conditional Probability}
+Probability of A when probability B given 
+\begin{equation}
+	P[A|B]=\frac{P[A\cap B]}{P[B]}
+\end{equation}
+	
+\emph{$P[B]\neq 0$}\\
+
+
+{\color{red}Statistically Independent} - P[A] is the same weather or not we know that B has occurred, then A said to be \emph{statistically independent} of the event B.\\\\ 
+\subsection{Axioms in Conditional Probability}
+All axioms are in ordinary probability are true in conditional probability
+
+\begin{itemize}
+	\item \textbf{Axiom 1}\\\\ 
+		\begin{equation*}
+			P[A|B]=\frac{P[A\cap B]}{P[B]}\geq 0
+		\end{equation*} 
+	\item \textbf{Axiom 2}\\\\
+		\begin{equation*}
+			P[\mathcal{S}]=\frac{P[S\cap B]}{P[B]}=\frac{P[B]}{P[B]}=1
+		\end{equation*} 
+	\item \textbf{Axiom 3}\\\\
+		\begin{equation*} 
+			P[A\cup C|B]=P[A|B]+P[C|B]
+		\end{equation*} 
+		(\emph{A and C are mutually exclusive})\\\\
+		\emph{proof}:
+		\begin{equation*}
+  			\begin{split}
+    				P[A\cup C|B]
+    			=&
+    			\frac{P[(A\cup C)\cap B]}{P[B]}\\
+    			=&
+			\frac{P[(A\cap B)\cup(C\cap B)]}{P[B]}\\
+			=&
+			\frac{P[A\cap B]}{P[B]}+\frac{P[C\cap B]}{P[B]}\\
+			=&
+   			P[A|B]+P[C|B]
+  			\end{split}
+		\end{equation*}
+\end{itemize}
+
+\subsection{The law of total probability}
+\begin{equation*}
+	P[A]=\sum^{N}_{i}P[A|B_{i}]P[B_{i}]
+\end{equation*}
+
+$\mathcal{S}=\bigcup^{N}_{i}B_{i}$ ($B_{i}\cap B_{j}=\emptyset$, $i\neq j$) ($B_{i}$ is a partition of $\mathcal{S}$)\\\\
+\emph{proof:}
+\begin{equation*}
+	\begin{split}
+		P[A]
+			=&
+				P[A\cap \mathcal{S}]\\
+			=&
+				P\left[A\cap \left(\bigcup^{N}_{i}B_{i}\right)\right]\\
+			=&
+				P\left[\left(A\cap B_{1}\right)\cup\left(A\cap B_{2}\right)\dots\cup\left(A\cap B_{N}\right)\right]\\
+			=&
+				P\left[\left(A\cap B_{1}\right)\right]+P\left[\left(A\cap B_{2}\right)\right]\dots P\left[\left(A\cap B_{N}\right)\right]\\
+			=&
+				P\left[\left(A| B_{1}\right)\right]P\left[B_{1}\right]+P\left[\left(A|B_{2}\right)\right]P\left[B_{2}\right]\dots P\left[\left(A| B_{N}\right)\right]P\left[B_{N}\right]\\
+			=&
+				\sum^{N}_{i}P\left[A|B_{i}\right]P\left[B_{i}\right]
+	\end{split}
+\end{equation*}
+
+\subsection{Statistically independent events}
+
+$A$ and $B$ are statistically independent, then 
+
+\begin{equation*}
+	P[A|B]=P[A]
+\end{equation*}
+\begin{equation*}
+	P[A\cap B]=P[A]P[B]
+\end{equation*}
+
+In general events $E_{1},E_{2}\dots E_{N}$ define to be statistically independent if
+
+\begin{equation*}
+	P[E_{1}E_{2}\dots E_{N}]=P[E_{1}]P[E_{2}]\dots P[E_{N}]
+\end{equation*}
+
+
+\subsection{Mutually exclusive events}
+\begin{equation*}
+	P[A|B]=\frac{P[A\cap B]}{P[B]}=0
+\end{equation*}
+
+\subsection{Probability chain rule}	
+Events $A,B,C$ are statistically independent
+\begin{equation*}
+	P[A\cap B \cap C]=P[A|(B\cap C)]P[B|C]P[C]
+\end{equation*}
+
+
+\subsection{Baye\'s Theorem}
+
+\begin{equation*}
+	P[B|A]=\frac{P[A|B]P[B]}{P[A]}
+\end{equation*}
+$P[B|A]$ - {\color{red}Posterior} Probability \\
+$P[B]$ - {\color{red}Prior} Probability\\
+$P[A|B]$ - {\color{red}Conditional} Probability 
+
+
+
+\subsection{Bernoulli Sequence}
+
+{\color{red}Bernoulli Trial} - Single tossing of a coin with probability \emph{p} of heads is an example for Bernoulli trial\\
+{\color{red}Bernoulli Sequence} - Consecutive independent Bernoulli trials is the Bernoulli sequence
+
+\subsection{Binomial Probability Law}
+\label{Binorm}
+\begin{equation*}
+	P[k]=\binom{M}{k}p^{k}(1-p)^{M-k}	
+\end{equation*}
+M - trials \\
+k - successes \\
+p - probability of successes \\
+P[k] - probability of k successes in M trials 
+ 
+
+\subsection{Geometric Probability Law}
+\label{geom}
+\begin{equation*}
+	P[k]=(1-p)^{k-1}p
+\end{equation*}
+{\color{red}P[k] - $k^{th}$ appearance of first successes} \\
+p - probability of successes 
+
+\subsection{Multinormal Probability Law}
+
+Sequence with independent trials with {\color{red}more then 2 outcomes} (coin toss as only 2 outcomes, H and T)\\
+{\color{red}$\mathcal{S}=\{1,2,3\}$} - given trial can have a 1, 2 or 3. (for the coin with this will H and T only)\\
+{\color{red}$p_{1},p_{2},p_{3}$ - probabilities} of getting 1,2 or 3 for a trial  ($p_{1}+p_{2}+p_{3}=1$)\\\\
+
+M - Trials\\
+Expecting {\color{red}two 1s} ($2p_{1}$), {\color{blue}three 2s} ($3p_{2}$) and {\color{green}one 3s} ($1p_{3}$)\\
+The probability of getting this combinations within {\color{red}M - trials} 
+
+\begin{equation*}
+	\binom{{\color{red}M}}{2,3,1}p_{1}^{2}p_{2}^{3}p_{3}^{1}
+\end{equation*}
+
+{\color{blue}$\binom{M}{2,3,1} = \frac{M!}{2!3!1!}$ - Multinomial coefficient} 

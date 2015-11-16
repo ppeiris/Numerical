@@ -1,0 +1,56 @@
+
+\section{Two Random Variables}
+\subsection{Normal Random Variables}
+suppose that x and y are normal random variables. The vector $z=[x,y]^{T}$ is a random point in the plane that can be described by a {\color{red}\emph{mean vector}} and {\color{red}\emph{covariance matrix}}
+
+\subsubsection{{\color{red} mean vector}}
+\[
+\mu =E[z]=
+\left [ \begin{array}{c}
+E[x] \\
+E[z] \\
+\end{array}
+\right ] =
+\left [ \begin{array}{c}
+\mu_{x} \\
+\mu_{y} \\
+\end{array}
+\right]
+\]
+
+\subsubsection{{\color{red} covariance martix}}
+
+ \[
+\Sigma =
+\left [ \begin{array}{cc}
+E[(x-\mu_{x})^{2}] & E[(x-\mu_{x})(y-\mu_{y})]\\
+E[(x-\mu_{x})(y-\mu_{y})] & E[(y-\mu_{y})^{2}]\\
+\end{array}
+\right ] =
+\left [ \begin{array}{c}
+\mu_{x} \\
+\mu_{y} \\
+\end{array}
+\right]
+\]
+ 
+\[
+\Sigma =
+\left [ \begin{array}{cc}
+\sigma_{x}^{2} & r\sigma_{x}\sigma_{y}\\
+r\sigma_{x}\sigma_{y} & \sigma_{y}^{2}\\
+\end{array}
+\right ] =
+\left [ \begin{array}{c}
+\mu_{x} \\
+\mu_{y} \\
+\end{array}
+\right]
+\]
+ 
+
+\subsection{Conditional Distribution}
+
+\begin{equation*}
+       F_{z}(z|M)=\frac{P(z\leq z| M)}{P(M)}
+\end{equation*}

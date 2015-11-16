@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{epsfig}     					% Alternative package
+\usepackage{epsfig}
+\usepackage{cancel}
+
+\hypersetup{							% metadata 
+    bookmarks=true,         					% show bookmarks bar?
+    unicode=false,          					% non-Latin characters in Acrobat
+    pdftoolbar=true,        					% show Acrobatâ toolbar?
+    pdfmenubar=true,        					% show Acrobat
+    pdffitwindow=false,     					% window fit to page when opened
+    pdfstartview={FitH},    					% fits the width of the page to the window
+    pdftitle={Probability and Statistics Notes},    	% title
+    pdfauthor={Prabath R Peiris},     			% author
+    pdfsubject={Probability and Statistics},   	% subject of the document
+    pdfcreator={Prarbath},   				% creator of the document
+    pdfproducer={Prarbath}, 				% producer of the document
+    pdfkeywords={keyword1} {key2} {key3}, 	% list of keywords
+    pdfnewwindow=true,      				% links in new window
+    colorlinks=true,       					% false: boxed links; true: colored links
+    linkcolor=blue,          					% color of internal links
+    citecolor=green,        					% color of links to bibliography
+    filecolor=magenta,      					% color of file links
+    urlcolor=cyan           					% color of external links
+} 
+
+
+\title{Probability and Statistics Notes}
+\author{Prabath Peiris}
+\date{}
+
+\begin{document}
+%test
+\maketitle 										% Title Page
+\tableofcontents								% Build Tables of Contents
+\include{definitions} 								% Definitions
+\include{ConditionalProbability} 					% Lecture 2 Conditional Probability
+\include{DiscreteRandomVariables}					% Lecture 3 Discrete Random Variables
+\include{ExpectedValuesforDiscreteRandomVariables} 	% Lecture 4 Expected Values and Functions of Random Variables
+\include{FunctionsRandomVariables} 				%Functions of Random Variables
+\include{TwoRandomVariable} 						%Two Random Variables
+\include{ModelingPhotoneDetectors} 				% Modeling of Photone Detectors 
+
+\end{document}

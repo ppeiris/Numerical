@@ -1,0 +1,232 @@
+\section{Expected Values for Discrete Random Variables  ($E[X]=\mu_{x}$)}
+\subsection{Expected value of a random variable E[X]} 
+Expected value of a random variable is the average value of the outcomes of a large number of experiments.\\
+
+Average value converge to \emph{expected value}\\
+{\color{red}Expected value} of X= {\color{red}expectation} of X = {\color{red}average} of X = {\color{red}mean} of X
+\begin{equation*}
+	E[X]=\sum_{i}x_{i}p_{X}(x_{i})
+\end{equation*}
+
+Expected value = best prediction of the outcome of random experiment of a single trial\\
+
+Expected value analogues to the center of mass of a system of linearly arranged masses.
+
+\subsubsection{Bernoulli Distribution}
+It is a discrete distribution pertains to an experiment which has exactly two outcomes, which may be labeled \{0,1\} or \{True,False\}, for example. One of the outcomes, usually True or 1, has probability p and the other has probability 1-p. \\\\
+{\color{blue}Expected (mean) value E[X] = p}\\
+{\color{blue}Variance var[X] = p(1-p)}\\\\
+
+proof:
+\begin{equation*}
+	\begin{split}
+		E[X]
+			=&
+				\sum^{1}_{k=0}x_{i}p_{X}[k]\\
+			=&
+				0.(1-p)+1.p\\
+			=&
+				p
+	\end{split}
+\end{equation*}
+
+\subsubsection{Binomial Distribution}
+Consider a random walk in which a unit step to the East occurs with probability p and to the West with probability q = 1 - p. After n steps the probability of taking k steps to the East and n-k to the West is (\htmlref{def}{Binorm})\\\\
+{\color{blue}Expected value $E[X]=Mp$}\\
+{\color{blue}Variance var(X)=Mp(1-p)}\\
+
+
+proof:
+\begin{equation*}
+	\begin{split}
+		E[X]
+			=& 
+				\sum^{M}_{k=0}kp_{X}[k]\\
+			=&
+				\sum^{M}_{k=0}k\binom{M}{k}p^{k}(1-p)^{M-k}\\
+			=&
+				\sum^{M}_{k=0}k\frac{M!}{(M-k)!k!}p^{k}(1-p)^{M-k}\\
+			=&
+				\sum^{M}_{k=1}\frac{M!}{(M-k)!(k-1)!}p^{k}(1-p)^{M-K}\\
+			=&
+				Mp\sum^{M'}_{k'=0}\frac{M'!}{(M'-k')!(k'!)}p^{k'}(1-p)^{M'-k'}\\
+			=&
+				Mp\sum^{M'}_{k'=0}\binom{M'}{k'}p^{k'}(1-p)^{M'-k'}\\
+			=&
+				Mp
+	\end{split}
+\end{equation*}
+
+\subsubsection{Poisson Distribution}
+ (\htmlref{def}{pois})\\
+{\color{blue}Expected value $E[X]=\lambda$}\\
+{\color{blue} Variance = $\lambda$}\\
+{\color{blue} Standard Diviation = $\sqrt{\lambda}$}\\
+
+ 
+ \subsubsection{Geometric Distribution}
+(\htmlref{def:}{geom})
+ {\color{blue}Expected value $E[X]=\frac{1}{p}$}\\
+
+
+\subsubsection{Gaussian (Normal) Distribution} 
+
+\begin{equation*}
+	f_{X}(x;\mu.\sigma)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}
+\end{equation*}
+
+$\mu=E[X]$ and $\sigma^{2}=$ var[X]\\
+
+CDF is related to \emph{error function}
+\begin{equation*}
+	erf(x)=\frac{2}{\sqrt{\pi}}\int^{x}_{0}e^{-t^{2}}dt
+\end{equation*}
+
+
+\subsubsection{Rayleigh Distribution}
+TODO
+\subsubsection{Conditional Distributions}
+TODO
+\subsection{Not all the PMF have expected values}
+
+* {\color{red}Discrete random variables with a finite number of values always have E[X]}\\
+* {\color{red}Countably infinite numbers} of values, a discrete random variable \textbf{{\color{red}may not have an E[X]}}\\
+
+\textbf{Some properties of E[X]}
+\begin{itemize}
+	\item E[X] is locate at the ``{\color{blue}center}'' of the PMF if PMF symmetric about the same point  
+	\item IT does {\color{blue}NOT} generally indicate the most probable value of the random variable
+	\item {\color{blue}More than one} PMF may have the same E[X] value
+\end{itemize}
+
+\subsection{Moments of PMF}
+\begin{itemize}
+	\item {\color{blue}First Moment} - Expected value E[X]
+	\item {\color{blue}Second Moment} - $E[X^{2}]$
+	\item {\color{blue}Third Moment} - 
+\end{itemize}
+
+\subsection{Expected (E[X]) Value for a Function of a Random Variable}
+
+Function $Y=g(X)$\\
+Expectation value $E[Y]=\sum_{i} y_{i}p_{Y}[y_{i}]$\\\\
+\emph{Using function g(x):}
+\begin{equation*}
+	E[g(x)]=\sum_{i}g(x)p_{Y}(y_{i})
+\end{equation*}
+
+{\color{red}\emph{Expectation operator E is linear}}
+\begin{equation*}
+	E[a_{1}g_{1}(X)+a_{2}g_{2}(X)]=a_{1}E[g_{1}(X)]+a_{2}E[g_{2}(X)]
+\end{equation*}
+
+\emph{{\color{red}Expectation operator does not commute}}
+
+\begin{equation*}
+	E[g(X)]\neq g(E[X])
+\end{equation*}
+
+\subsection{Mean Squire Error - MSE}
+\begin{equation*}
+	E[(X-b)^{2}]
+\end{equation*}
+$X$ - true out come of an experiment\\ 
+$b$ - prediction 
+
+
+\subsection{Variance}
+The variance of a random variable is the expected value of the squared difference from the mean.
+
+\begin{equation*}
+	var(X)=E[(X-E[X])^{2}]
+\end{equation*}
+\begin{equation*}
+	var(X)=E[X^{2}]-E[X]^{2}
+\end{equation*}
+
+\subsubsection{Some properties}
+\begin{equation*}
+	var(c)=0
+\end{equation*}
+\begin{equation*}
+	var(X+c)=var(X)
+	\end{equation*}
+\begin{equation*}
+	var(cX)=c^{2}var(X)
+\end{equation*}
+
+{\color{red} Variance operator is a nonlinear operator}
+\begin{equation*}
+	var(g_{1}(x)+g_{2}(x))\neq var(g_{1}(x))+var(g_{2}(x))
+\end{equation*}
+
+
+\subsection{Characteristic Function}
+ Characteristic Function use to calculate moments of random variables\\ 
+ Characteristic Function of a random variable $X$
+\begin{equation*}
+	\phi_{X}(\omega)=E[e^{i\omega X}]=\sum_{k=1}^{\infty}p_{X}[k]e^{i\omega k}
+\end{equation*}
+
+$e^{i\omega X}=\cos(\omega X)+i\sin(\omega X)$
+
+\begin{equation*}
+	\begin{split}
+		\phi_{X}(\omega) 
+				 =& 
+				 	E[e^{i\omega X}]\\
+				 =& 
+				 	E[\cos(\omega X)]+iE[\sin(\omega X)]\\ 
+				 =&
+				 	\sum_{i}p_{X}[x_{i}]cos(\omega X) + \sum_{i}p_{X}[x_{i}]sin(\omega X)\\
+				 =&
+				 	\sum_{i}p_{X}[x_{i}]e^{i\omega X}
+	\end{split}
+\end{equation*}
+
+
+
+\subsubsection{Expected value using Characteristic function}
+\begin{equation}
+	\frac{d\phi_{X}(\omega)}{d\omega}=\sum_{k=-\infty}^{+\infty} p_{X}[x_{i}](ik)e^{i\omega k}
+\end{equation}                                                
+
+\begin{equation*}
+	E[X]=\frac{1}{i}\frac{d\phi_{X}(\omega)}{d\omega}|_{\omega=0}=\sum_{k=-\infty}^{+\infty} p_{X}[x_{i}](k)e^{i\omega k}
+\end{equation*}                                                
+%********** Lecture 4 Expected Values and Functions of Random Variables ******** 
+\newpage
+
+\subsubsection{$n^{th}$ moment of a random variable using Characteristic function}
+	
+\begin{equation*}
+	E[X^{n}]=\frac{1}{i^{n}}\frac{d^{n}\phi_{X}(\omega)}{d\omega^{n}}|_{\omega=0}
+\end{equation*}                                                
+
+\subsection{Some Properties of Characteristic function}
+\begin{itemize}
+	\item $\phi_{X}(\omega)$ always exists since
+		\begin{equation*}
+			|\phi_{X}(\omega)|<\infty
+		\end{equation*}
+	\item $\phi_{X}(\omega)$ is periodic with period $2\pi$
+		\begin{equation*}
+			\phi_{X}(\omega+2\pi m)=\phi_{X}(\omega)
+		\end{equation*}
+	\item  The PMF may be can recover from the characteristic function.
+		\begin{equation*}
+                        p_{X}[k]=\int^{\pi}_{-\pi}\phi_{X}(\omega)e^{-i\omega k}\frac{d\omega}{2\pi}  (-\infty< k <\infty)
+		\end{equation*}
+
+	\item Convergence of characteristic function guarantees convergence of PMF
+
+\end{itemize}
+
+\subsection{Estimating Expected value and the Variance}
+\begin{equation*}
+           E[X]=\sum_{k=1}^{N}k{\color{red}{p_{X}[k]}}=\sum_{k=1}^{N}k({\color{red}\frac{N_{k}}{N}})=\frac{1}{N}\sum_{k=1}^{N}kN_{k} 
+\end{equation*}
+
+\begin{equation*}
+           var(X)=\frac{1}{N}\sum_{k=1}^{N}x_{i}^{2}- (\frac{1}{N}\sum_{k=1}^{N}x_{i})^{2}
+\end{equation*}

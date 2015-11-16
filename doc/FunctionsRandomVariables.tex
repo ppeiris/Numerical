@@ -1,0 +1,49 @@
+\section{Functions of a Random Variable}
+\subsection{Jointly Distributed Random Variables}
+Two random variables that are defined on the \emph{same sample space} $S$ are said to be \emph{jointly distributed }
+
+\subsection{Join PMF}
+
+\begin{equation*}
+	p_{X,Y}[x_{i},y_{j}]=P[X(s)=x_{i}, Y(s)=y_{j}]
+\end{equation*}
+
+
+Properties\\
+\begin{itemize}
+     \item Range of values of joint PMF
+
+	\begin{equation*}
+		0 \leq p_{X,Y}[x_{i},y_{j}] \leq  1
+	\end{equation*}
+     \item Sum of values of joint PMF
+	\begin{equation*}
+		\sum_{i}^{N_{X}} \sum_{j}^{N_{Y}} p_{X,Y}[x_{i},y_{j}]=1
+	\end{equation*}
+\end{itemize}
+
+\subsection{Marginal PMF}
+
+If the join PMF known, then PMF for X and Y ($p_{X}[x_{i}], p_{Y}[y_{i}]$) can be determine 
+
+\begin{equation*}
+	p_{X}[x_{i}]=\sum_{j=1}^{\infty} p_{X,Y}[x_{k},y_{j}]
+\end{equation*}
+
+\begin{equation*}
+	p_{Y}[y_{i}]=\sum_{i=1}^{\infty} p_{X,Y}[x_{i},y_{k}]
+\end{equation*}
+
+\begin{center}
+	{\color{blue}Join PMF $\Rightarrow$ marginal PMSs}\\
+	{\color{red} Marginal PMFs $\not\Rightarrow$ marginal PMSs}
+\end{center}
+
+
+
+\subsection{Join CDF}
+\begin{equation*}
+	F_{X,Y}(x,y)=P[X\leq x, Y\leq y]	
+\end{equation*}
+
+\newpage
